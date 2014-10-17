@@ -1,5 +1,5 @@
-Tumblr Music Downloader
-=======================
+Tumblr MP3 Downloader
+=====================
 
 Adds a download link under Tumblr Audio posts allowing you to directly download 
 the MP3 file.
