@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           	Tumblr MP3 Downloader
-// @description    	Adds option to download MP3s from Tumblr
-// @version        	0.1
+// @description    	Adds option to download MP3s from the Tumblr Dashboard
+// @version        	0.2
 // @grant          	none
 // @author         	little-vince
 // @namespace      	http://little-vince.tumblr.com/
@@ -18,6 +18,9 @@
 
 */
 
+var marker = 0;
+var target = document.querySelector('#posts');
+
 function addstyle() {
 	var a = document.querySelector("head").appendChild(document.createElement("style"));
 	a.type = "text/css";
@@ -32,19 +35,34 @@ function check(url) {
 	return "http://a.tumblr.com/" + s[s.length - 1] + "o1.mp3";
 }
 
-var parents = document.querySelectorAll(".post_wrapper");
-for (var i = 0; i < parents.length; i++) {
-	var p = parents[i];
-	var musicpost = p.querySelector(".audio_player_container");
-	if (musicpost) {
-		var n = document.createElement("a");
-		n.target = "_blank";
-		n.className = "post_control audio_download";
-		n.title = "Download";
-		n.href = check(musicpost.getAttribute("data-stream-url"));
+function getLinks(t) {
+	var parents = t.querySelectorAll(".post_wrapper");
+	for (; marker < parents.length; marker++) {
+		var p = parents[marker];
+		var musicpost = p.querySelector(".audio_player_container");
+		if (musicpost) {
+			var n = document.createElement("a");
+			n.target = "_blank";
+			n.className = "post_control audio_download";
+			n.title = "Download";
+			n.href = check(musicpost.getAttribute("data-stream-url"));
 
-		var bar = p.querySelector(".post_controls_inner");
-		bar.insertBefore(n, bar.firstChild);
+			var bar = p.querySelector(".post_controls_inner");
+			bar.insertBefore(n, bar.firstChild);
+		}
 	}
 }
+
 addstyle();
+getLinks(target);
+
+var observer = new MutationObserver(function(mutations) {
+	mutations.forEach(function(mutation) {
+		if (mutation.type === 'childList') {
+			getLinks(mutation.target);
+		}
+	});
+});
+
+observer.observe(target, {childList: true});
+
