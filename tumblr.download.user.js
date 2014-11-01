@@ -1,11 +1,13 @@
 // ==UserScript==
-// @name           	Tumblr MP3 Downloader
-// @description    	Adds option to download MP3s from the Tumblr Dashboard
-// @version        	0.2
-// @grant          	none
-// @author         	little-vince
-// @namespace      	http://little-vince.tumblr.com/
-// @include        	*www.tumblr.com/*
+// @name            Tumblr MP3 Downloader
+// @description     Adds option to download MP3s from the Tumblr Dashboard
+// @version         0.2
+// @grant           none
+// @author          little-vince
+// @namespace       http://little-vince.tumblr.com/
+// @include         *www.tumblr.com/*
+// @updateURL       https://raw.githubusercontent.com/little-vince/tumblr-download/master/tumblr.download.user.js
+// @downloadURL     https://raw.githubusercontent.com/little-vince/tumblr-download/master/tumblr.download.user.js
 // ==/UserScript==
 
 // Last edited 22 January 2014
