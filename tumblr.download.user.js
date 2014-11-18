@@ -4,7 +4,7 @@
 // @version         0.2
 // @grant           none
 // @author          little-vince
-// @namespace       http://little-vince.tumblr.com/
+// @namespace       http://little-vince.github.io/
 // @include         *www.tumblr.com/*
 // @updateURL       https://raw.githubusercontent.com/little-vince/tumblr-download/master/tumblr.download.user.js
 // @downloadURL     https://raw.githubusercontent.com/little-vince/tumblr-download/master/tumblr.download.user.js
